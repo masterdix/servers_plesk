@@ -1,0 +1,96 @@
+import os
+#procesos de creacion de respaldos 
+def respaldo_correo (u_correo, dominio):
+    os.system(u_correo)
+    i_r_c="tar -cvzf qmail_"+dominio+".tar.gz "+dominio+"/"
+    os.system(i_r_c)
+    print("Respaldo de QMAIL creado con exito")
+    os.system("PAUSE")
+def respaldo_web (u_pagina, dominio):
+    i_r_w=u_pagina+"tar -cvzf www_"+dominio+".tar.gz "+dominio+"/"
+    os.system(i_r_w)
+    print("Respaldo de WEB creado con exito")  
+def respaldo_db ():
+    print("incompleto, en proceso")
+
+#procesos de syncronizacion
+def sync_correo (dominio,usuario_sygy):
+    ruta_sygy = ":/volume2/Respaldos/Respaldo_Hosting/"
+    rsync = "rsync -vcazhi -e 'ssh -p 2222' --progress -stats "
+    os.system(rsync+dominio+"/qmail_"+dominio+"tar.gz"+" "+usuario_sygy+ruta_sygy+dominio+"/")
+    print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
+def sync_web (dominio, usuario_sygy):
+    ruta_sygy = ":/volume2/Respaldos/Respaldo_Hosting/"
+    rsync = "rsync -vcazhi -e 'ssh -p 2222' --progress -stats "
+    os.system(rsync+dominio+"/www_"+dominio+"tar.gz"+" "+usuario_sygy+ruta_sygy+dominio+"/")
+    print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
+def sync_db ():
+    print("incompleto, en proceso")
+
+#proceso de busqueda y validacion
+def validacion_dominio(dominio):
+    comp_dominio = os.path.isdir("./var/www/vhost"+dominio)
+    if comp_dominio == True:
+        print("Se ah validado y el dominio existe")
+    else :
+        print ("El domino no existe en este servidor")
+        menu()
+
+def validacion_respaldo(dominio):
+    comp_correo = os.path.isfile("./var/qmail/mailnames/"+"qmail_"+dominio+".tar.gz")
+    if comp_correo == True:
+        print("El archivo de respaldo Qmail del dominio: "+ dominio+ "EXISTE")
+        elimi_dec=input("Desea eliminarlo?: Y o N ")
+        if elimi_dec=="y":
+            eliminacion_mail()
+        else: respaldo_correo
+    else: 
+        print ("El archivo no existe, se procede con respaldo")
+        menu()
+    comp_web = os.path.isfile("./var/www/vhost"+"www_"+dominio+".tar.gz")
+    if comp_web == True:
+        print("El archivo de respaldo Web del dominio: "+ dominio+ "EXISTE")
+        if elimi_dec=="y":
+            eliminacion_web()
+        else: respaldo_web(dominio,u_pagina)
+    print("proceso de busqueda y validacion")
+    
+#proceso de eliminacion de respaldos
+def eliminacion_mail():
+    os.system("rm -rf /var/qmail/mailnames/"+"qmail_"+dominio+".tar.gz")    
+    print("El respaldo mail fue eliminado con exito")
+def eliminacion_web():
+    os.system("rm -rf /var/www/vhost"+"www_"+dominio+".tar.gz")    
+    print("El respaldo web fue eliminado con exito")
+
+
+def menu():
+    print ("""
+        Bienvenido al sistema de respaldos NOMADAT:
+        desea realizar un respaldo?
+        1) Si
+        2) No o Salir    
+        """)
+
+#corazon de la operacion
+def main_respaldo (decision_main, dominio, usuario_sygy):
+    if decision_main == "1":
+        if validacion_dominio() == True:
+            validacion_respaldo()
+            print("Los respaldos de Qmail y WWW fueron realizados")
+            print("Para subir los archivos a Sygnology")
+            print("Introduce tus credenciales:")
+            usuario_sygy = input("introduce tu usuario: ")
+            sync_correo()
+            sync_web()
+        else :
+            print("El dominio no existe volviendo a menu principal")
+            print("Menu principal en desarrollo se procede a salir")
+            os.system("exit")
+    else:
+        print("no hay nada mas por hacer saliendo")
+        os.system("exit")
+
+
+menu()
+main_respaldo()
