@@ -15,11 +15,5 @@ else :
 
 menu_selection = input("Que operacion desea realizar:  ")
 
-def control (menu_selection):
-    if menu_selection == 1 :
-        order.day0.submenu_resp()
-    else :
-        print("Seleccion incorrecta vuelva a intentar")
-        order.day0.nomadat_intro()
-
-control(menu_selection)
+if menu_selection == 1:
+    
