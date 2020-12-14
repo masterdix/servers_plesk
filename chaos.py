@@ -16,4 +16,6 @@ else :
 menu_selection = input("Que operacion desea realizar:  ")
 
 if menu_selection == 1:
-    
+    solar_system.sun.menu_resp(dominio)
+if menu_selection == 2:
+    print("en progreso")

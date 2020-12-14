@@ -1,5 +1,7 @@
 import os
-
+import order.day0
+import earth
+#funcion de validacion de dominios
 def validacion (dominio):
     print("En busca del dominio: ", dominio, "dentro del servidor")
     os.system("cd /var/www/vhost")
@@ -10,3 +12,10 @@ def validacion (dominio):
     else:
         print("El dominio no existe en este servidor se procedera a salir")
         return False
+
+def menu_resp (dominio):
+    order.day0.submenu_resp()
+    select = input("Que operacion desea realizar:  ")
+    if select == 1:
+        earth.validacion_respaldo(dominio)
+    
