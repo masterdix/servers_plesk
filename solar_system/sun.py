@@ -22,12 +22,10 @@ def menu_resp (dominio):
         solar_system.earth.validacion_respaldo(dominio)
     #borrado de respaldo web
     if select == 2:
-        print("desactivado por proteccion")
-        menu_resp(dominio)
+        solar_system.earth.eliminacion_web(dominio)
     #borrado de respaldo mail
     if select == 3:
-        print("desactivado por proteccion")
-        menu_resp(dominio)
+        solar_system.earth.eliminacion_mail(dominio)
     #creacion de respaldo web
     if select == 4:
         solar_system.earth.crear_respaldo_web(dominio)
@@ -42,7 +40,7 @@ def menu_resp (dominio):
         solar_system.earth.sync_mail(dominio)
     #regresa al menu principal
     if select == 8:
-        chaos.main_menu1(dominio)
+        chaos.order.day0.nomadat_intro()
     #salir a consola
     if select == 9:
         os.system("exit")

@@ -1,5 +1,6 @@
 import os
 import solar_system.sun
+import chaos
 #Funciones de respaldos
 
 #Funcion de validacion de respaldos
@@ -57,3 +58,14 @@ def sync_mail (dominio):
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
     os.system("PAUSE")
     solar_system.sun.menu_resp(dominio)
+
+def eliminacion_mail(dominio):
+    os.system("rm -rf /var/qmail/mailnames/"+"qmail_"+dominio+".tar.gz")
+    print("El respaldo de mail fue eliminado con exito")
+    solar_system.sun.menu_resp(dominio)
+
+def eliminacion_web(dominio):
+    os.system("rm -rf /var/www/vhost/"+"www_"+dominio+".tar.gz")
+    print("El respaldo de web fue eliminado con exito")
+    solar_system.sun.menu_resp(dominio)
+
