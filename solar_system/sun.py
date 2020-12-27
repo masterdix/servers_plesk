@@ -1,7 +1,5 @@
 import os
 import order.day0
-import solar_system.earth
-import chaos
 #funcion de validacion de dominios
 def validacion (dominio):
     print("En busca del dominio: ", dominio, "dentro del servidor")
@@ -19,28 +17,36 @@ def menu_resp (dominio):
     select = input("Que operacion desea realizar:  ")
     #validacion de existencia de respaldo
     if select == 1:
-        solar_system.earth.validacion_respaldo(dominio)
+        from solar_system.earth import validacion_respaldo
+        validacion_respaldo(dominio)
     #borrado de respaldo web
     if select == 2:
-        solar_system.earth.eliminacion_web(dominio)
+        from solar_system.earth import eliminacion_web
+        eliminacion_web(dominio)
     #borrado de respaldo mail
     if select == 3:
-        solar_system.earth.eliminacion_mail(dominio)
+        from solar_system.earth import eliminacion_mail
+        eliminacion_mail(dominio)
     #creacion de respaldo web
     if select == 4:
-        solar_system.earth.crear_respaldo_web(dominio)
+        from solar_system.earth import crear_respaldo_web
+        crear_respaldo_web(dominio)
     #creacion de respaldo mail
     if select == 5:
-        solar_system.earth.crear_respaldo_qmail(dominio)
+        from solar_system.earth import crear_respaldo_qmail
+        crear_respaldo_qmail(dominio)
     #subir respaldo web
     if select == 6:
-        solar_system.earth.sync_web(dominio)
+        from solar_system.earth import sync_web
+        sync_web(dominio)
     #subir respaldo correo
     if select == 7:
-        solar_system.earth.sync_mail(dominio)
+        from solar_system.earth import sync_mail
+        sync_mail(dominio)
     #regresa al menu principal
     if select == 8:
-        chaos.order.day0.nomadat_intro()
+        from chaos import main_menu1
+        main_menu1(dominio)
     #salir a consola
     if select == 9:
         os.system("exit")
