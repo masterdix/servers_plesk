@@ -24,6 +24,7 @@ def validacion_respaldo(dominio):
         print("El archivo de respaldo Qmail del dominio", dominio, "NO EXISTE")
         os.system("PAUSE")
         solar_system.sun.menu_resp(dominio)
+    return dominio
 
 #Crea el respaldo webmail en base al dominio asignado
 def crear_respaldo_qmail (dominio):
@@ -32,14 +33,20 @@ def crear_respaldo_qmail (dominio):
     print("Respaldo de QMAIL creado con exito")
     os.system("PAUSE")
     solar_system.sun.menu_resp(dominio)
+    return dominio
+
 
 #Crea el respaldo web en base al dominio asignado
 def crear_respaldo_web (dominio):
     os.system("cd /var/www/vhost/")
+    os.system("ls")
     os.system("tar -cvzf www_"+dominio+".tar.gz "+dominio+"/")
+    os.system("ls")
     print("Respaldo de WEB creado con exito")
     os.system("PAUSE")
     solar_system.sun.menu_resp(dominio)
+    return dominio
+
 
 #subir respaldo web
 def sync_web (dominio):
@@ -49,6 +56,8 @@ def sync_web (dominio):
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
     os.system("PAUSE")
     solar_system.sun.menu_resp(dominio)
+    return dominio
+
 
 #subir respaldo correo
 def sync_mail (dominio):
@@ -58,14 +67,19 @@ def sync_mail (dominio):
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
     os.system("PAUSE")
     solar_system.sun.menu_resp(dominio)
+    return dominio
+
 
 def eliminacion_mail(dominio):
     os.system("rm -rf /var/qmail/mailnames/"+"qmail_"+dominio+".tar.gz")
     print("El respaldo de mail fue eliminado con exito")
     solar_system.sun.menu_resp(dominio)
+    return dominio
+
 
 def eliminacion_web(dominio):
     os.system("rm -rf /var/www/vhost/"+"www_"+dominio+".tar.gz")
     print("El respaldo de web fue eliminado con exito")
     solar_system.sun.menu_resp(dominio)
+    return dominio
 
