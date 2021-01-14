@@ -19,12 +19,12 @@ def validacion_web(dominio):
 
 #Crea el respaldo webmail en base al dominio asignado, este se crea en la carpeta raiz del programa
 def crear_respaldo_qmail (dominio):
-    os.system("tar -cvzf qmail_"+dominio+".tar.gz var/www/vhost/"+dominio+"/")
+    os.system("tar -cvzf qmail_"+dominio+".tar.gz /var/www/vhosts/"+dominio+"/")
     print("Respaldo de QMAIL creado con exito")
 
 #Crea el respaldo web en base al dominio asignado, este se crea en la carpeta raiz del programa
 def crear_respaldo_web (dominio):
-    os.system("tar -cvzf www_"+dominio+".tar.gz var/www/vhost/"+dominio+"/")
+    os.system("tar -cvzf www_"+dominio+".tar.gz /var/www/vhosts/"+dominio+"/")
     print("Respaldo de WEB creado con exito")
 
 #subir respaldo web
