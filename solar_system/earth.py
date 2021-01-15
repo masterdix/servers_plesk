@@ -31,7 +31,7 @@ def crear_respaldo_web (dominio):
 #subir respaldo mediante subproceso
 def sync_a (dominio):
     user = input("Captura tu usuario sygnology ")
-    subprocess.call(["rsync -vcazhi -e 'ssh -p 2222' --progress -stats /scripts/servers_plesk/www_"+dominio+"tar.gz"+" "+user+"@nube.nomadat.com:/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/"])
+    subprocess.call(["rsync -vcazhi -e 'ssh -p 2222' --progress -stats /scripts/servers_plesk/www_"+dominio+".tar.gz"+" "+user+"@nube.nomadat.com:/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/"])
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
 #subir respaldo web
 def sync_web (dominio):
