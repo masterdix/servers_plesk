@@ -25,7 +25,7 @@ def main_menu():
     ¿Que accion deseas realizar?:
     
     1) Respaldo (Hostings / Syncronizacion Synology)
-    2) Liempieza de correos electronicos.    
+    2) Limpieza de correos electronicos.    
     """)
 
 #submenu de respaldo

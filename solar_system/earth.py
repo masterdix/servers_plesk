@@ -1,5 +1,6 @@
 #Funciones de respaldos
 import os
+import subprocess
 
 #Funcion de validacion de respaldos
 def validacion_mail(dominio):
@@ -27,9 +28,14 @@ def crear_respaldo_web (dominio):
     os.system("tar -cvzf www_"+dominio+".tar.gz /var/www/vhosts/"+dominio+"/")
     print("Respaldo de WEB creado con exito")
 
+#subir respaldo mediante subproceso
+def sync_a (dominio):
+    user = input("Captura tu usuario sygnology ")
+    subprocess.call(["rsync -vcazhi -e 'ssh -p 2222' --progress -stats www_"+dominio+"tar.gz"+" "+user+"@nube.nomadat.com:/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/"])
+    print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
 #subir respaldo web
 def sync_web (dominio):
-    user = input("Captura tu usuario sygnology")
+    user = input("Captura tu usuario sygnology ")
     os.system("rsync -vcazhi -e 'ssh -p 2222' --progress -stats "+dominio+"www_"+dominio+"tar.gz"+" "+user+":/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/")
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
 

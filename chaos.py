@@ -55,7 +55,7 @@ def brain(dominio):
         
             #subir respaldo web
             elif select == "7":
-                solar_system.earth.sync_web(dominio)
+                solar_system.earth.sync_a(dominio)
                 brain(dominio)
         
             #subir respaldo correo
