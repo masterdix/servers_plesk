@@ -36,7 +36,7 @@ def sync_a (dominio):
 #subir respaldo web
 def sync_web (dominio):
     user = input("Captura tu usuario sygnology ")
-    os.system("rsync -vcazhi -e 'ssh -p 2222' --progress -stats "+dominio+"www_"+dominio+"tar.gz"+" "+user+":/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/")
+    os.system("rsync -vcazhi -e 'ssh -p 2222' --progress -stats www_"+dominio+".tar.gz"+" "+user+"@nube.nomadat.com:/volume2/Respaldos/Respaldo_Hosting/"+dominio+"/")
     print("Syncronizacion, exitosa: Respaldo Web Creado en Sygnology")
 
 
