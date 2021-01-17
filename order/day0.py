@@ -40,6 +40,7 @@ def submenu_resp():
     6) Crear un respaldo de MAIL
     7) Subir respaldo WEB (Subida syg)
     8) Subir respaldo MAIL (Subida syg)
+    
     9) Regresar al menu principal
     10) Salir del sistema
     """)
@@ -51,10 +52,10 @@ def submenu_mail():
     1) Listar correos de dominio (Webmail)
     2) Visualizar password correo (Webmail)
     3) Limpiar Trash/Spam (Correo especifico)
-    4) Limpiar correo Semana/Mensual/Anual (Dominio)
-    5) Limpiar correo Semana/Mensual/Anual (Correo especifico)
-    6) Subir respaldo WEB (Subida syg)
-    7) Limpiar Trash/Spam (Dominio)
-    8) Regresar al menu principal
-    9) Salir del sistema
+    4) Limpiar Trash/Spam (Dominio)
+    5) Limpiar correo Semana/Mes/Ano (Dominio)
+    6) Limpiar correo Semana/Mes/Ano (Correo especifico)
+    
+    7) Regresar al menu principal
+    8) Salir del sistema
     """)

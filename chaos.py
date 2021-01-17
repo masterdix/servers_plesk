@@ -72,8 +72,6 @@ def brain(dominio):
             order.day0.submenu_mail
             select = input("Que operacion desea realizar:  ")
             
-            if select == "1":
-    
     #si el dominio no existe saldra del proceso.
     else :
             print("El dominio no existe en este servidor.")
