@@ -69,13 +69,15 @@ def brain(dominio):
     
         #menu de operaciones con correos    
         elif menu_selection == "2":
-            print("en progreso")
-            os.system("PAUSE")
+            order.day0.submenu_mail
+            select = input("Que operacion desea realizar:  ")
+            
+            if select == "1":
     
     #si el dominio no existe saldra del proceso.
     else :
             print("El dominio no existe en este servidor.")
             sys.exit()
 
-#iniicial el proceso.
+#inicializa el proceso.
 brain(dominio)
