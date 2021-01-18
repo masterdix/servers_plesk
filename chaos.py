@@ -72,6 +72,39 @@ def brain(dominio):
             order.day0.submenu_mail
             select = input("Que operacion desea realizar:  ")
             
+            #Lista los correos dentro de un dominio
+            if select == "1":
+                solar_system.venus.list_domain(dominio)
+                brain(dominio)
+            
+            #visualiza el password de un usuario
+            elif select == "2":
+                solar_system.venus.password_user(dominio)
+                brain(dominio)
+            
+            #elimina trash y spam de un usuario
+            elif select == "3":
+                solar_system.venus.spunge_mail(dominio)
+                brain(dominio)
+            
+            #elimina el trash y el spam del dominio
+            elif select == "4":
+                solar_system.venus.spunge_dominio(dominio)
+                brain(dominio)
+            
+            #Limpia correo historico (dominio)
+            elif select == "5":
+                solar_system.venus.hist_dominio(dominio)
+                brain(dominio)
+            
+            #Limpia correo historico (usuario)
+            elif select == "6":
+                solar_system.venus.hist_usuario(dominio)
+                brain(dominio)
+            
+            #sale del bucle del submenu principal
+            elif select == "7":
+                brain(dominio)
     #si el dominio no existe saldra del proceso.
     else :
             print("El dominio no existe en este servidor.")
