@@ -9,8 +9,8 @@ def spunge_dominio (dominio):
 #elimina trash y spam de un usuario
 def spunge_mail (dominio):
     web_user = input ("Captura el usuario (Sin dominio)")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",web_user,"@",dominio"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",web_user,"@",dominio"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
 
 #Lista los correos dentro de un dominio
 def list_domain (dominio):
