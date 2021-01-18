@@ -69,7 +69,7 @@ def brain(dominio):
     
         #menu de operaciones con correos    
         elif menu_selection == "2":
-            order.day0.submenu_mail
+            order.day0.submenu_mail()
             select = input("Que operacion desea realizar:  ")
             
             #Lista los correos dentro de un dominio
