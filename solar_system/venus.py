@@ -3,23 +3,23 @@ import os
 
 #elimina el trash y el spam del dominio
 def spunge_dominio (dominio):
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep"+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep"+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep "+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep "+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
 
 #elimina trash y spam de un usuario
 def spunge_mail (dominio):
     web_user = input ("Captura el usuario (Sin dominio)")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep ",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep ",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
 
 #Lista los correos dentro de un dominio
 def list_domain (dominio):
-    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep"+dominio)
+    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep "+dominio)
 
 #visualiza el password de un usuario
 def password_user (dominio):
     web_user = input ("Captura el usuario (Sin dominio)")
-    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep"+web_user+"@"+dominio)
+    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep "+web_user+"@"+dominio)
 
 #Limpia correo historico (dominio)
 def hist_dominio (dominio):
