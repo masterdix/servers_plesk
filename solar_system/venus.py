@@ -3,8 +3,8 @@ import os
 
 #elimina el trash y el spam del dominio
 def spunge_dominio (dominio):
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
-    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep",dominio,"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep"+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Spam all; done")
+    os.system("for i in $(plesk bin mail -l | tr '\t' ' ' | cut -d' ' -f 3- | grep"+dominio+"); do doveadm expunge -u '$i' mailbox INBOX.Trash all; done")
 
 #elimina trash y spam de un usuario
 def spunge_mail (dominio):
@@ -14,12 +14,12 @@ def spunge_mail (dominio):
 
 #Lista los correos dentro de un dominio
 def list_domain (dominio):
-    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep",dominio)
+    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep"+dominio)
 
 #visualiza el password de un usuario
 def password_user (dominio):
     web_user = input ("Captura el usuario (Sin dominio)")
-    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep",web_user,"@",dominio)
+    os.system("/usr/local/psa/admin/sbin/mail_auth_view |grep"+web_user+"@"+dominio)
 
 #Limpia correo historico (dominio)
 def hist_dominio (dominio):
@@ -35,11 +35,11 @@ def hist_dominio (dominio):
     periodo = input ("Captura tu opcion")
 
     if periodo == "1":
-        os.system("doveadm expunge -u ",dominio," mailbox '*' before 1w")
+        os.system("doveadm expunge -u "+dominio+" mailbox '*' before 1w")
     elif periodo == "2":
-        os.system("doveadm expunge -u ",dominio," mailbox '*' before 4w")
+        os.system("doveadm expunge -u "+dominio+" mailbox '*' before 4w")
     elif periodo == "3":
-        os.system("doveadm expunge -u ",dominio," mailbox '*' before 48w")
+        os.system("doveadm expunge -u "+dominio+" mailbox '*' before 48w")
 
 #Limpia correo historico (usuario)
 def hist_usuario (dominio):
@@ -56,8 +56,8 @@ def hist_usuario (dominio):
     periodo = input ("Captura tu opcion")
 
     if periodo == "1":
-        os.system("doveadm expunge -u ",web_user,"@",dominio," mailbox '*' before 1w")
+        os.system("doveadm expunge -u "+web_user+"@"+dominio+" mailbox '*' before 1w")
     elif periodo == "2":
-        os.system("doveadm expunge -u ",web_user,"@",dominio," mailbox '*' before 4w")
+        os.system("doveadm expunge -u "+web_user+"@"+dominio+" mailbox '*' before 4w")
     elif periodo == "3":
-        os.system("doveadm expunge -u ",web_user,"@",dominio," mailbox '*' before 48w")
+        os.system("doveadm expunge -u "+web_user+"@"+dominio+" mailbox '*' before 48w")
