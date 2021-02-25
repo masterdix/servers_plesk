@@ -6,8 +6,15 @@ import solar_system.earth
 import solar_system.venus
 import order.day0
 
+class bcolors:
+    red = '\033[91m'
+    green = '\033[92m'
+    endc = '\033[0m'
+
+
 #intro nomadat logo
-order.day0.nomadat_intro()
+print(bcolors.red), order.day0.nomadat_intro()
+print(bcolors.endc)
 
 #pide el domiinio a comprobar
 dominio = input("Con que dominio deseas trabajar?:   ")
@@ -15,7 +22,9 @@ dominio = input("Con que dominio deseas trabajar?:   ")
 #si el dominio existe, envia un true y da un menu de opciones, si no existe finaliza
 #el proceso
 def brain(dominio):
+    print(bcolors.green)
     if solar_system.sun.validacion(dominio) == True :
+        print(bcolors.endc)
         order.day0.main_menu()
         menu_selection = input("Que operacion desea realizar:  ")
 
