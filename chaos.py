@@ -5,7 +5,6 @@ import solar_system.sun
 import solar_system.earth
 import solar_system.venus
 import order.day0
-from colorama import Fore, Back, Style
 
 
 #class bcolors:

@@ -59,3 +59,9 @@ def submenu_mail():
     7) Regresar al menu principal
     8) Salir del sistema
     """)
+    
+class bcolors:
+    red = '\033[91m'
+    green = '\033[92m'
+    endc = '\033[0m'
+    yellow = '\u001b[33m'
