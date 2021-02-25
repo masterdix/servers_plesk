@@ -1,5 +1,5 @@
 import os
-from chaos import bcolors
+from solar_system.chaos import bcolors
 
 #funcion de validacion de dominios
 def validacion (dominio):
