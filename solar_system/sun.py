@@ -1,5 +1,4 @@
 import os
-from colorama import Fore, Back, Style
 
 #funcion de validacion de dominios
 def validacion (dominio):
