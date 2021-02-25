@@ -20,32 +20,33 @@ def nomadat_intro ():
 
 #menu principal
 def main_menu():
+    print(bcolors.yellow)
     print("""
     Bienvenido al sistema SSH NOMADAT:
     
     1) Respaldo (Hostings / Syncronizacion Synology)
     2) Limpieza de correos electronicos.    
     """)
+    print(bcolors.endc)
 
 #submenu de respaldo
 def submenu_resp():
+    print(bcolors.yellow)
     print("""
     Sistema de respaldos NOMADAT:
     
     1) Validacion de respaldo de Mail (Local)
     2) Validacion de respaldo Web (Local)
-    3) Eliminar un respaldo WEB (Local/Solo respaldo)
-    4) Eliminar un respaldo MAIL (Local/Solo respaldo)
-    5) Crear un respaldo WEB
-    6) Crear un respaldo de MAIL
-    7) Subir respaldo WEB (Subida syg)
-    8) Subir respaldo MAIL (Subida syg)
+    3) Eliminar un respaldos (Local/Solo respaldo)
+    4) Crear un respaldo WEB/Mail
+    5) Subir respaldo WEB/Mail (Subida syg)
     
-    9) Regresar al menu principal
-    10) Salir del sistema
+    6) Regresar al menu principal
     """)
+    print(bcolors.endc)
 
 def submenu_mail():
+    print(bcolors.yellow)
     print("""
     Sistema de correos NOMADAT:
     
@@ -59,9 +60,11 @@ def submenu_mail():
     7) Regresar al menu principal
     8) Salir del sistema
     """)
+    print(bcolors.endc)
     
 class bcolors:
     red = '\033[91m'
     green = '\033[92m'
     endc = '\033[0m'
     yellow = '\u001b[33m'
+    bold = '\033[1m'
