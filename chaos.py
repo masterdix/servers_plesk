@@ -15,8 +15,7 @@ import order.day0
 
 
 #intro nomadat logo
-print(Fore.RED), order.day0.nomadat_intro()
-print(Style.RESET_ALL)
+print (order.day0.nomadat_intro())
 
 #pide el domiinio a comprobar
 dominio = input("Con que dominio deseas trabajar?:   ")
