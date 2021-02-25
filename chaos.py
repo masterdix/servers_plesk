@@ -10,6 +10,8 @@ class bcolors:
     red = '\033[91m'
     green = '\033[92m'
     endc = '\033[0m'
+    yellow = '\u001b[33m'
+    
 
 
 #intro nomadat logo
@@ -22,9 +24,7 @@ dominio = input("Con que dominio deseas trabajar?:   ")
 #si el dominio existe, envia un true y da un menu de opciones, si no existe finaliza
 #el proceso
 def brain(dominio):
-    print(bcolors.green)
     if solar_system.sun.validacion(dominio) == True :
-        print(bcolors.endc)
         order.day0.main_menu()
         menu_selection = input("Que operacion desea realizar:  ")
 
@@ -116,8 +116,10 @@ def brain(dominio):
                 brain(dominio)
     #si el dominio no existe saldra del proceso.
     else :
-            print("El dominio no existe en este servidor.")
-            sys.exit()
+        print(bcolors.red)
+        print("El dominio no existe en este servidor.")
+        print(bcolors.endc)
+        sys.exit()
 
 #inicializa el proceso.
 brain(dominio)
