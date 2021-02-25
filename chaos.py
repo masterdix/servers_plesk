@@ -5,18 +5,19 @@ import solar_system.sun
 import solar_system.earth
 import solar_system.venus
 import order.day0
+from colorama import Fore, Back, Style
 
-class bcolors:
-    red = '\033[91m'
-    green = '\033[92m'
-    endc = '\033[0m'
-    yellow = '\u001b[33m'
-    
+
+#class bcolors:
+#    red = '\033[91m'
+#    green = '\033[92m'
+#    endc = '\033[0m'
+#    yellow = '\u001b[33m'
 
 
 #intro nomadat logo
-print(bcolors.red), order.day0.nomadat_intro()
-print(bcolors.endc)
+print(Fore.RED), order.day0.nomadat_intro()
+print(Style.RESET_ALL)
 
 #pide el domiinio a comprobar
 dominio = input("Con que dominio deseas trabajar?:   ")

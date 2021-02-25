@@ -1,13 +1,13 @@
 import os
-from solar_system.chaos import bcolors
+from colorama import Fore, Back, Style
 
 #funcion de validacion de dominios
 def validacion (dominio):
-    print(bcolors.yellow, "En busca del dominio: ", dominio, "dentro del servidor", bcolors.endc)
+    print("En busca del dominio: ", dominio, "dentro del servidor")
     comp_dominio = os.path.isdir("/var/www/vhosts/"+dominio+"/")
     if comp_dominio == True:
-        print(bcolors.green, "Se ah validado y el dominio existe", bcolors.endc)
+        print("Se ah validado y el dominio existe")
         return True
     else:
-        print(bcolors.red, "El dominio no existe en este servidor se procedera a salir", bcolors.endc)
+        print("El dominio no existe en este servidor se procedera a salir")
         return False
