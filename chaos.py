@@ -115,9 +115,7 @@ def brain(dominio):
                 brain(dominio)
     #si el dominio no existe saldra del proceso.
     else :
-        print(bcolors.red)
         print("El dominio no existe en este servidor.")
-        print(bcolors.endc)
         sys.exit()
 
 #inicializa el proceso.
