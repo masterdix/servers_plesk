@@ -101,4 +101,4 @@ def brain(dominio):
         sys.exit()
 
 #--Inicializa el proceso.--
-brain(dominio, comp_dominio, comp_mailing)
+brain(dominio)
