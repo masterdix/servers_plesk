@@ -10,9 +10,8 @@ def validacion (dominio):
     print(bcolors.endc)
     
     #--Variables de almacenamiento--
-    global comp_dominio 
     comp_dominio = os.path.isdir("/var/www/vhosts/"+dominio+"/")
-    global comp_mailing 
+    
     comp_mailing= os.path.isdir("/var/qmail/mailnames/"+dominio+"/")
     
     #--Validación de carpeta de hosting--

@@ -6,7 +6,8 @@ import solar_system.venus
 import order.day0
 
 #--Estructura principal del programa, implica el menu y cada una de las opciones.--
-
+global comp_dominio 
+global comp_mailing 
 
 #--Intro nomadat logo--
 order.day0.nomadat_intro()

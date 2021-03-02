@@ -27,7 +27,7 @@ def validacion_web(dominio):
         print(bcolors.endc)
         
 #--Crea el respaldo webmail y web en base al dominio capturado--
-def crear_respaldo_qmail (dominio):
+def crear_respaldo_qmail (dominio,comp_dominio):
     if comp_dominio == True:    
         print(bcolors.bold)
         os.system("tar -cvzf qmail_"+dominio+".tar.gz /var/qmail/mailnames/"+dominio+"/")
