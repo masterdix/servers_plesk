@@ -1,8 +1,8 @@
-#Funciones de respaldos
 import os
+from solar_system.sun import validacion
 from order.day0 import bcolors
 
-#Funcion de validacion de respaldos
+#--Funcion de validacion de respaldos--
 def validacion_mail(dominio):
     comp_correo = os.path.isfile("qmail_"+dominio+".tar.gz")
     if comp_correo == True:
@@ -14,7 +14,7 @@ def validacion_mail(dominio):
         print("El archivo de respaldo Qmail del dominio", dominio, "NO EXISTE")
         print(bcolors.endc)
 
-#Funcion de validacion de respaldos
+#--Funcion de validacion de respaldos--
 def validacion_web(dominio):
     comp_web = os.path.isfile("www_"+dominio+".tar.gz")
     if comp_web == True:
@@ -25,15 +25,21 @@ def validacion_web(dominio):
         print(bcolors.red)
         print("El archivo de respaldo Qmail del dominio", dominio, "NO EXISTE")
         print(bcolors.endc)
-#Crea el respaldo webmail en base al dominio asignado, este se crea en la carpeta raiz del programa
+        
+#--Crea el respaldo webmail y web en base al dominio capturado--
 def crear_respaldo_qmail (dominio):
-    print(bcolors.bold)
-    os.system("tar -cvzf qmail_"+dominio+".tar.gz /var/qmail/mailnames/"+dominio+"/")
-    os.system("tar -cvzf www_"+dominio+".tar.gz /var/www/vhosts/"+dominio+"/")
-    print(bcolors.green)
-    print("Respaldo de QMAIL creado con exito")
-    print("Respaldo de WEB creado con exito")
-    print(bcolors.endc)
+    if comp_dominio == True:    
+        print(bcolors.bold)
+        os.system("tar -cvzf qmail_"+dominio+".tar.gz /var/qmail/mailnames/"+dominio+"/")
+        print(bcolors.green)
+        print("Respaldo de QMAIL creado con exito")
+        print(bcolors.endc)
+        
+    if comp_mailing==True:
+        os.system("tar -cvzf www_"+dominio+".tar.gz /var/www/vhosts/"+dominio+"/")
+        print(bcolors.green)
+        print("Respaldo de WEB creado con exito")
+        print(bcolors.endc)
 
 #Crea el respaldo web en base al dominio asignado, este se crea en la carpeta raiz del programa
 #def crear_respaldo_web (dominio):
