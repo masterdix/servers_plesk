@@ -45,7 +45,7 @@ def brain(dominio):
         
             #--Llama a la funcion de crear respaldos--
             elif select == "4":
-                solar_system.earth.crear_respaldo_qmail(dominio)
+                solar_system.earth.crear_respaldo_qmail(dominio, comp_dominio, comp_mailing)
                 brain(dominio)
         
             #--Llama a la funcion que sube respaldos a la nube privada--
@@ -101,4 +101,4 @@ def brain(dominio):
         sys.exit()
 
 #--Inicializa el proceso.--
-brain(dominio)
+brain(dominio, comp_dominio, comp_mailing)
